@@ -5,7 +5,7 @@ _ft_strcpy:
 			push r9
 			mov rax, rdi
 			while:	cmp byte [rsi], 0
-					mov r9b, [rsi]
+					mov r9b, byte [rsi]
 					mov [rdi],  r9b
 					je endwhile
 					inc rsi

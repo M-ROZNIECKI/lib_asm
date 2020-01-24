@@ -8,7 +8,6 @@ _ft_atoi_base:
 				push r13 ;size base
 				mov r13, 0x0
 				mov r11, 0x0
-				mov r10, 0x0
 				mov r10b, [rsi]
 				mov r9, 0x0
 				mov rax, 0x0
@@ -25,7 +24,6 @@ _ft_atoi_base:
 					je real_end
 					cmp byte [rsi], 0x02d
 					je real_end
-					jmp ft_inc_valid
 				ft_inc_valid:
 					inc r13
 					inc rsi
@@ -45,19 +43,17 @@ _ft_atoi_base:
 				ft_inc_white:
                 	inc rdi
                 	jmp ft_pass_whitespace
-                ft_pass_symb:
-					cmp byte [rdi], 0x02d
-					je ft_change_sign
-					cmp byte [rdi], 0x02b
-					je ft_inc_plus
-					jmp ft_convert_num
 				ft_change_sign:
 					xor r9, 0x01
 					inc rdi
 					jmp ft_pass_symb
 				ft_inc_plus:
 					inc rdi
-					jmp ft_pass_symb
+                ft_pass_symb:
+					cmp byte [rdi], 0x02d
+					je ft_change_sign
+					cmp byte [rdi], 0x02b
+					je ft_inc_plus
 				ft_convert_num:
 					cmp byte r10b, 0x0
 					je end

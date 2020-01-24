@@ -17,9 +17,9 @@ _ft_strcmp:
 					jmp while
 			endwhile:
 			mov r10b, [rdi]
-			sub r9d, r10d
-			mov eax, r9d
-			pop r9
+			sub r9d, r10d;	r9d and r10d and not r9b and r10b or else
+			mov eax, r9d;	sub break if the res of sub is neg,
+			pop r9;			that is why i set r9 and r10 at '0' at the beginning
 			pop r10
 			pop rbp
 			ret
