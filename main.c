@@ -16,16 +16,9 @@
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
+#include "libasm.h"
 
 //TODO:: list chainée
-
-extern int ft_strlen(const char *s);
-extern char *ft_strcpy(char *s1, const char *s2);
-extern int ft_strcmp(const char *s1, const char *s2);
-extern char *ft_strdup(const char *s);
-extern int ft_write(int i, char *s, int n);
-extern int ft_read(int i, char *s, int n);
-extern int ft_atoi_base(char *s1, char *s2);
 
 
 int main()
@@ -41,15 +34,16 @@ int main()
 	s1 = strcpy(s1, "hello");
 	if(!(s2 = malloc(sizeof(char) * 6)))
 		return (-1);
-	s2 = strcpy(s2, "world");
-	s2 = ft_strcpy(s2, s1);
-	printf("the length of \"hello\" is =%d\n", ft_strlen(s1));
-	printf("has ft_strcpy worked? =%s", s2);
+	s2 = strcpy(s2, "no ");
+	//s2 = ft_strcpy(s2, s1);
+	printf("the ft_strlen of \"hello\" is =%d\n", ft_strlen(s1));
+	printf("the strlen of \"hello\" is =%lu\n", strlen(s1));
+	printf("has ft_strcpy worked? =%s", ft_strcpy(s2, s1));
 	printf("\nare this str identical? if yes res is 0 res=%d", ft_strcmp("hello", "helli"));
 	s3 = ft_strdup("stop osx and go linux");
 	printf("\nis ft_strdup has worked? =%s", s3);
 	printf("\n");
-	printf("\n\"what's up\" size ==%d\n\n", ft_write(1, "\nwhat's up\n", 11));
+	printf("\n\"\\nwhat's up\\n\" size returned by ft_write = %d\n\n", ft_write(1, "\nwhat's up\n", 11));
 	if(!(s4 = malloc(sizeof(char) * 11)))
 		return (-1);
 	write(1, "wait 5s", 8);
