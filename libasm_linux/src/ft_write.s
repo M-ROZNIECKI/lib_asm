@@ -5,7 +5,7 @@ global ft_write
 ft_write:
 			push rbp
 			push r9
-			mov rax, 0x0
+			mov rax, 0x01
 			syscall
 			cmp rax, 0x0
 			jge end
