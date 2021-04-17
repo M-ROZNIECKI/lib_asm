@@ -24,9 +24,7 @@ all: $(NAME)
 $(NAME): $(OBJ) $(HEADER)
 	@ar rc $(NAME) $(OBJ)
 
-bonus: $(NAME) $(OBJ_BONUS)
-
-$(BONUS): $(OBJ) $(OBJ_BONUS) $(HEADER)
+bonus: $(OBJ) $(OBJ_BONUS) $(HEADER)
 	@ar rc $(NAME) $(OBJ) $(OBJ_BONUS)
 
 %.o: %.s
